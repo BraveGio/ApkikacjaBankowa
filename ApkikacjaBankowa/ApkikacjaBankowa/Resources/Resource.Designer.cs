@@ -2213,23 +2213,23 @@ namespace ApkikacjaBankowa
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0a0090
+			public const int DataWaznosciKarty = 2131361936;
+			
+			// aapt resource value: 0x7f0a00ad
+			public const int Kwota = 2131361965;
+			
+			// aapt resource value: 0x7f0a00af
+			public const int Nazwisko = 2131361967;
+			
 			// aapt resource value: 0x7f0a008f
-			public const int DataWaznosciKarty = 2131361935;
-			
-			// aapt resource value: 0x7f0a00ac
-			public const int Kwota = 2131361964;
-			
-			// aapt resource value: 0x7f0a00ae
-			public const int Nazwisko = 2131361966;
+			public const int NumerKarty = 2131361935;
 			
 			// aapt resource value: 0x7f0a008e
-			public const int NumerKarty = 2131361934;
+			public const int Obrazkarty = 2131361934;
 			
-			// aapt resource value: 0x7f0a008d
-			public const int Obrazkarty = 2131361933;
-			
-			// aapt resource value: 0x7f0a0097
-			public const int action0 = 2131361943;
+			// aapt resource value: 0x7f0a0098
+			public const int action0 = 2131361944;
 			
 			// aapt resource value: 0x7f0a0064
 			public const int action_bar = 2131361892;
@@ -2252,17 +2252,17 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0041
 			public const int action_bar_title = 2131361857;
 			
-			// aapt resource value: 0x7f0a0094
-			public const int action_container = 2131361940;
+			// aapt resource value: 0x7f0a0095
+			public const int action_container = 2131361941;
 			
 			// aapt resource value: 0x7f0a0065
 			public const int action_context_bar = 2131361893;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int action_divider = 2131361947;
+			// aapt resource value: 0x7f0a009c
+			public const int action_divider = 2131361948;
 			
-			// aapt resource value: 0x7f0a0095
-			public const int action_image = 2131361941;
+			// aapt resource value: 0x7f0a0096
+			public const int action_image = 2131361942;
 			
 			// aapt resource value: 0x7f0a0007
 			public const int action_menu_divider = 2131361799;
@@ -2279,11 +2279,11 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0043
 			public const int action_mode_close_button = 2131361859;
 			
-			// aapt resource value: 0x7f0a0096
-			public const int action_text = 2131361942;
+			// aapt resource value: 0x7f0a0097
+			public const int action_text = 2131361943;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int actions = 2131361956;
+			// aapt resource value: 0x7f0a00a5
+			public const int actions = 2131361957;
 			
 			// aapt resource value: 0x7f0a0044
 			public const int activity_chooser_view_content = 2131361860;
@@ -2312,8 +2312,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a004b
 			public const int buttonPanel = 2131361867;
 			
-			// aapt resource value: 0x7f0a0098
-			public const int cancel_action = 2131361944;
+			// aapt resource value: 0x7f0a0099
+			public const int cancel_action = 2131361945;
 			
 			// aapt resource value: 0x7f0a0016
 			public const int center = 2131361814;
@@ -2327,8 +2327,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a005b
 			public const int checkbox = 2131361883;
 			
-			// aapt resource value: 0x7f0a00a0
-			public const int chronometer = 2131361952;
+			// aapt resource value: 0x7f0a00a1
+			public const int chronometer = 2131361953;
 			
 			// aapt resource value: 0x7f0a0022
 			public const int clip_horizontal = 2131361826;
@@ -2357,8 +2357,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0054
 			public const int customPanel = 2131361876;
 			
-			// aapt resource value: 0x7f0a00ab
-			public const int data = 2131361963;
+			// aapt resource value: 0x7f0a00ac
+			public const int data = 2131361964;
 			
 			// aapt resource value: 0x7f0a0062
 			public const int decor_content_parent = 2131361890;
@@ -2393,8 +2393,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0019
 			public const int end = 2131361817;
 			
-			// aapt resource value: 0x7f0a00aa
-			public const int end_padder = 2131361962;
+			// aapt resource value: 0x7f0a00ab
+			public const int end_padder = 2131361963;
 			
 			// aapt resource value: 0x7f0a000f
 			public const int enterAlways = 2131361807;
@@ -2423,8 +2423,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0029
 			public const int @fixed = 2131361833;
 			
-			// aapt resource value: 0x7f0a0092
-			public const int hasło = 2131361938;
+			// aapt resource value: 0x7f0a0093
+			public const int hasło = 2131361939;
 			
 			// aapt resource value: 0x7f0a0009
 			public const int home = 2131361801;
@@ -2435,8 +2435,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0049
 			public const int icon = 2131361865;
 			
-			// aapt resource value: 0x7f0a00a5
-			public const int icon_group = 2131361957;
+			// aapt resource value: 0x7f0a00a6
+			public const int icon_group = 2131361958;
 			
 			// aapt resource value: 0x7f0a003e
 			public const int ifRoom = 2131361854;
@@ -2444,17 +2444,17 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0046
 			public const int image = 2131361862;
 			
-			// aapt resource value: 0x7f0a00ad
-			public const int imie = 2131361965;
+			// aapt resource value: 0x7f0a00ae
+			public const int imie = 2131361966;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int info = 2131361953;
+			// aapt resource value: 0x7f0a00a2
+			public const int info = 2131361954;
 			
 			// aapt resource value: 0x7f0a000e
 			public const int item_touch_helper_previous_elevation = 2131361806;
 			
-			// aapt resource value: 0x7f0a00b4
-			public const int karty = 2131361972;
+			// aapt resource value: 0x7f0a00b5
+			public const int karty = 2131361973;
 			
 			// aapt resource value: 0x7f0a0082
 			public const int ksztalt = 2131361922;
@@ -2477,17 +2477,17 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a001b
 			public const int left = 2131361819;
 			
-			// aapt resource value: 0x7f0a00a6
-			public const int line1 = 2131361958;
+			// aapt resource value: 0x7f0a00a7
+			public const int line1 = 2131361959;
 			
-			// aapt resource value: 0x7f0a00a8
-			public const int line3 = 2131361960;
+			// aapt resource value: 0x7f0a00a9
+			public const int line3 = 2131361961;
 			
 			// aapt resource value: 0x7f0a0030
 			public const int listMode = 2131361840;
 			
-			// aapt resource value: 0x7f0a0090
-			public const int listViewkarty = 2131361936;
+			// aapt resource value: 0x7f0a0091
+			public const int listViewkarty = 2131361937;
 			
 			// aapt resource value: 0x7f0a0048
 			public const int list_item = 2131361864;
@@ -2495,17 +2495,17 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a008c
 			public const int listatranzakcji = 2131361932;
 			
-			// aapt resource value: 0x7f0a0091
-			public const int login = 2131361937;
+			// aapt resource value: 0x7f0a0092
+			public const int login = 2131361938;
 			
-			// aapt resource value: 0x7f0a00b5
-			public const int lokaty = 2131361973;
+			// aapt resource value: 0x7f0a00b6
+			public const int lokaty = 2131361974;
 			
-			// aapt resource value: 0x7f0a00b2
-			public const int masked = 2131361970;
+			// aapt resource value: 0x7f0a00b3
+			public const int masked = 2131361971;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int media_actions = 2131361946;
+			// aapt resource value: 0x7f0a009b
+			public const int media_actions = 2131361947;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int middle = 2131361851;
@@ -2515,6 +2515,9 @@ namespace ApkikacjaBankowa
 			
 			// aapt resource value: 0x7f0a002b
 			public const int multiply = 2131361835;
+			
+			// aapt resource value: 0x7f0a008d
+			public const int navigation = 2131361933;
 			
 			// aapt resource value: 0x7f0a0079
 			public const int navigation_header_container = 2131361913;
@@ -2528,17 +2531,17 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0028
 			public const int normal = 2131361832;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int notification_background = 2131361955;
+			// aapt resource value: 0x7f0a00a4
+			public const int notification_background = 2131361956;
+			
+			// aapt resource value: 0x7f0a009e
+			public const int notification_main_column = 2131361950;
 			
 			// aapt resource value: 0x7f0a009d
-			public const int notification_main_column = 2131361949;
+			public const int notification_main_column_container = 2131361949;
 			
-			// aapt resource value: 0x7f0a009c
-			public const int notification_main_column_container = 2131361948;
-			
-			// aapt resource value: 0x7f0a00af
-			public const int nrkonta = 2131361967;
+			// aapt resource value: 0x7f0a00b0
+			public const int nrkonta = 2131361968;
 			
 			// aapt resource value: 0x7f0a0020
 			public const int parallax = 2131361824;
@@ -2555,11 +2558,11 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a000b
 			public const int progress_horizontal = 2131361803;
 			
-			// aapt resource value: 0x7f0a00b3
-			public const int przelew = 2131361971;
+			// aapt resource value: 0x7f0a00b4
+			public const int przelew = 2131361972;
 			
-			// aapt resource value: 0x7f0a00b0
-			public const int przelewprzycisk = 2131361968;
+			// aapt resource value: 0x7f0a00b1
+			public const int przelewprzycisk = 2131361969;
 			
 			// aapt resource value: 0x7f0a005d
 			public const int radio = 2131361885;
@@ -2567,11 +2570,11 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a001c
 			public const int right = 2131361820;
 			
-			// aapt resource value: 0x7f0a00a2
-			public const int right_icon = 2131361954;
+			// aapt resource value: 0x7f0a00a3
+			public const int right_icon = 2131361955;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int right_side = 2131361950;
+			// aapt resource value: 0x7f0a009f
+			public const int right_side = 2131361951;
 			
 			// aapt resource value: 0x7f0a0085
 			public const int saldo = 2131361925;
@@ -2669,8 +2672,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a001d
 			public const int start = 2131361821;
 			
-			// aapt resource value: 0x7f0a0099
-			public const int status_bar_latest_event_content = 2131361945;
+			// aapt resource value: 0x7f0a009a
+			public const int status_bar_latest_event_content = 2131361946;
 			
 			// aapt resource value: 0x7f0a005e
 			public const int submenuarrow = 2131361886;
@@ -2681,11 +2684,11 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0031
 			public const int tabMode = 2131361841;
 			
-			// aapt resource value: 0x7f0a00a9
-			public const int text = 2131361961;
+			// aapt resource value: 0x7f0a00aa
+			public const int text = 2131361962;
 			
-			// aapt resource value: 0x7f0a00a7
-			public const int text2 = 2131361959;
+			// aapt resource value: 0x7f0a00a8
+			public const int text2 = 2131361960;
 			
 			// aapt resource value: 0x7f0a0052
 			public const int textSpacerNoButtons = 2131361874;
@@ -2702,8 +2705,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0001
 			public const int textinput_error = 2131361793;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int time = 2131361951;
+			// aapt resource value: 0x7f0a00a0
+			public const int time = 2131361952;
 			
 			// aapt resource value: 0x7f0a004a
 			public const int title = 2131361866;
@@ -2744,8 +2747,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a0002
 			public const int view_offset_helper = 2131361794;
 			
-			// aapt resource value: 0x7f0a00b1
-			public const int visible = 2131361969;
+			// aapt resource value: 0x7f0a00b2
+			public const int visible = 2131361970;
 			
 			// aapt resource value: 0x7f0a0040
 			public const int withText = 2131361856;
@@ -2756,8 +2759,8 @@ namespace ApkikacjaBankowa
 			// aapt resource value: 0x7f0a008b
 			public const int zablokowane = 2131361931;
 			
-			// aapt resource value: 0x7f0a0093
-			public const int zaloguj = 2131361939;
+			// aapt resource value: 0x7f0a0094
+			public const int zaloguj = 2131361940;
 			
 			static Id()
 			{

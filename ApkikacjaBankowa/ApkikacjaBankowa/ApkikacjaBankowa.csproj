@@ -52,6 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -101,7 +102,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoBazy.cs" />
     <Compile Include="glowna.cs" />
+    <Compile Include="JiPPZ507DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JiPPZ507DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Karta.cs" />
     <Compile Include="KartyActivity.cs" />
     <Compile Include="MainActivity.cs" />
@@ -113,6 +120,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="JiPPZ507DataSet.xsc">
+      <DependentUpon>JiPPZ507DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JiPPZ507DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JiPPZ507DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JiPPZ507DataSet.xss">
+      <DependentUpon>JiPPZ507DataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />

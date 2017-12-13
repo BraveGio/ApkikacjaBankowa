@@ -2,7 +2,7 @@
 using Android.Widget;
 using Android.OS;
 using Android.Content;
-using Android.Support.V7.App;
+
 
 namespace ApkikacjaBankowa
 {
@@ -37,10 +37,16 @@ namespace ApkikacjaBankowa
         }
         public static bool sprawdz()
         {
+            
+            DoBazy logowanie = new DoBazy();
+            logowanie.logowanie(login.Text, haslo.Text);
             bool odp;
-            string loginzbazy = "Adam", haslozbazy = "adam";
-            if (login.Text == loginzbazy && haslo.Text == haslozbazy)
+            if (logowanie.id!=null)
             {
+                ISharedPreferences shared = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
+            ISharedPreferencesEditor edit = shared.Edit();
+                edit.PutString("id", logowanie.id);
+                edit.Apply();
                 odp = true;
             }
             else
@@ -50,6 +56,7 @@ namespace ApkikacjaBankowa
 
             return odp;
         }
+        
     }
 }
 

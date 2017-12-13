@@ -13,6 +13,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Support.V4.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Support.Design.Widget;
 
 
 using ApkikacjaBankowa.Resources;
@@ -22,15 +23,19 @@ namespace ApkikacjaBankowa
     [Activity(Label = "glowna", Theme = "@style/AppTheme")]
     public class glowna : AppCompatActivity
     {
+        
         public Toolbar mToolbar;
         public static TextView saldo, zablokowane, dostepne;
         public ListView tranzakcje;
         List<Operacja> listaoperacji = new List<Operacja>();
         private DrawerLayout mDrawerLayout;
         private ActionBarDrawerToggle mtoggle;
+        private int id;
+        private DoBazy danezbazy;
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            
+            ISharedPreferences shared = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
+            id = Convert.ToInt32(shared.GetString("id", string.Empty));
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.glowna);
             mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
@@ -38,30 +43,39 @@ namespace ApkikacjaBankowa
             zablokowane = (TextView)FindViewById(Resource.Id.zablokowane);
             dostepne = (TextView)FindViewById(Resource.Id.dostepne);
             tranzakcje = (ListView)FindViewById(Resource.Id.listatranzakcji);
+
             var adapter = new OperacjaAdapter(this, listaoperacji);
             tranzakcje.Adapter = adapter;
             SetSupportActionBar(mToolbar);
             mDrawerLayout = (DrawerLayout)FindViewById(Resource.Id.toolbar_drawer);
+            if (mDrawerLayout != null)
+            {
+                var nav = FindViewById < NavigationView> (Resource.Id.navigation);
+                nav.NavigationItemSelected += (sender, e) =>
+                {
+                    menuBoczne(e.MenuItem);
+                };
+
+            }
             mtoggle = new ActionBarDrawerToggle(this, mDrawerLayout, Resource.String.open, Resource.String.close);
             mDrawerLayout.AddDrawerListener(mtoggle);
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(true);
-            
             mtoggle.SyncState();
-            
 
+          //  sprawdźsalda(id);
+          //  piecoperacji(id);
         }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        public bool menuBoczne(IMenuItem item)
         {
             var id = item.ItemId;
             switch (id)
             {
-                case 1:
+                case Resource.Id.karty:
                     Intent klik = new Intent(this, typeof(Przelew));
                     StartActivity(klik);
                     return true;
-                case 0:
+                case Resource.Id.przelew :
                     Intent klik2 = new Intent(this, typeof(KartyActivity));
                     StartActivity(klik2);
                     return true;
@@ -77,7 +91,17 @@ namespace ApkikacjaBankowa
             //nothing
         }
 
+        public AsyncTask Sprawdźsalda(int id)
+        {
+            string[] dane = danezbazy.odczytstanów(id);
+            saldo.Text = dane[0];
+            dostepne.Text = dane[1];
+            zablokowane.Text = dane[2];
+        }
+        //   public AsyncTask piecoperacji(int id)
+        //   {
 
+        //   }
 
 
     }
