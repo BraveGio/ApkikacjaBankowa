@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -10,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.Data.SqlClient;
+using System.Xml;
 
 namespace ApkikacjaBankowa
 {
@@ -77,12 +79,31 @@ namespace ApkikacjaBankowa
                 return dane;
             }
     }
-}
-        public void lista5operacji(int id)
+
+        public List<Operacja> lista5operacji(int id)
         {
 
+            List<Operacja> listaop =new List<Operacja>();
+            SqlCommand piecoperSqlCommand =new SqlCommand("Select * from [JiPPakita].[operacje]("+id+")");
+            piecoperSqlCommand.CommandType = CommandType.Text;
+            SqlDataReader dane=piecoperSqlCommand.ExecuteReader();
+            int i = 0;
+            while (dane.Read())
+            {
+                Operacja operacja=new Operacja(i,dane[0].ToString(),dane[1].ToString());
+                listaop.Add(operacja);
+                i++;
+            }
+            dane.Close();
+            return listaop;
+            
         }
+
+}
+
+   
+
+        
 
     }
 
-}

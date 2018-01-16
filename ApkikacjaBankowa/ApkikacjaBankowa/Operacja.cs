@@ -18,5 +18,12 @@ namespace ApkikacjaBankowa
         public int id { get; set; }
         public string Data { get; set; }
         public string Kwota { get; set; }
+
+        public Operacja(int id, string data, string kwota)
+        {
+            this.id = id;
+            this.Data = data;
+            this.Kwota = kwota;
+        }
     }
 }

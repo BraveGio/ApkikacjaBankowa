@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -37,13 +37,13 @@ namespace ApkikacjaBankowa
             ISharedPreferences shared = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
             id = Convert.ToInt32(shared.GetString("id", string.Empty));
             base.OnCreate(savedInstanceState);
+            zadaniaTask();
             SetContentView(Resource.Layout.glowna);
             mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             saldo = (TextView)FindViewById(Resource.Id.saldo);
             zablokowane = (TextView)FindViewById(Resource.Id.zablokowane);
             dostepne = (TextView)FindViewById(Resource.Id.dostepne);
             tranzakcje = (ListView)FindViewById(Resource.Id.listatranzakcji);
-
             var adapter = new OperacjaAdapter(this, listaoperacji);
             tranzakcje.Adapter = adapter;
             SetSupportActionBar(mToolbar);
@@ -55,16 +55,12 @@ namespace ApkikacjaBankowa
                 {
                     menuBoczne(e.MenuItem);
                 };
-
             }
             mtoggle = new ActionBarDrawerToggle(this, mDrawerLayout, Resource.String.open, Resource.String.close);
             mDrawerLayout.AddDrawerListener(mtoggle);
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(true);
             mtoggle.SyncState();
-
-          //  sprawdźsalda(id);
-          //  piecoperacji(id);
         }
         public bool menuBoczne(IMenuItem item)
         {
@@ -91,18 +87,31 @@ namespace ApkikacjaBankowa
             //nothing
         }
 
-        public AsyncTask Sprawdźsalda(int id)
+        private async Task zadaniaTask()
         {
-            string[] dane = danezbazy.odczytstanów(id);
-            saldo.Text = dane[0];
-            dostepne.Text = dane[1];
-            zablokowane.Text = dane[2];
+            await SprawdźsaldaAsyncTask(id);
+            await piecoperacji(id);
         }
-        //   public AsyncTask piecoperacji(int id)
-        //   {
+        private async Task SprawdźsaldaAsyncTask(int id)
+        {
+                await Task.Run(() =>
+                {
+                    string[] dane = new string[3];
+                    dane = danezbazy.odczytstanów(id);
+                    saldo.Text = dane[0];
+                    dostepne.Text = dane[1];
+                    zablokowane.Text = dane[2];
+                }
+            );
+        }
+        private async Task piecoperacji(int id)
+        {
+            await Task.Run(() =>
+                {
+                    List<Operacja> oper = danezbazy.lista5operacji(id);
 
-        //   }
-
-
+                }
+            );
+        }
     }
 }

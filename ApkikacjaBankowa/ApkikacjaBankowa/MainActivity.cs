@@ -44,7 +44,7 @@ namespace ApkikacjaBankowa
             if (logowanie.id!=null)
             {
                 ISharedPreferences shared = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
-            ISharedPreferencesEditor edit = shared.Edit();
+                ISharedPreferencesEditor edit = shared.Edit();
                 edit.PutString("id", logowanie.id);
                 edit.Apply();
                 odp = true;
