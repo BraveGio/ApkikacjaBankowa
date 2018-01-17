@@ -3,24 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/Obrazkarty"
-        android:layout_height="80dp"
-        android:layout_width="130dp" />
-    <RelativeLayout
+    <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_toRightOf="@id/Obrazkarty">
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/NumerKarty"
-            android:text="Numer karty" />
-        <TextView
-            android:layout_below="@id/NumerKarty"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/DataWaznosciKarty"
-            android:text="Data Ważności" />
-    </RelativeLayout>
+        android:id="@+id/NumerKarty"
+        android:text="Numer karty" />
+    <TextView
+        android:layout_below="@id/NumerKarty"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/DataWaznosciKarty"
+        android:text="Data Ważności" />
 </RelativeLayout>

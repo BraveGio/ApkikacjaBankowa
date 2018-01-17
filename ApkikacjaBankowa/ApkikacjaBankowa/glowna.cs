@@ -31,26 +31,30 @@ namespace ApkikacjaBankowa
         private DrawerLayout mDrawerLayout;
         private ActionBarDrawerToggle mtoggle;
         private int id;
-        private DoBazy danezbazy;
+        private DoBazy danezbazy=new DoBazy();
+
+       
+            
         protected override void OnCreate(Bundle savedInstanceState)
         {
             ISharedPreferences shared = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
             id = Convert.ToInt32(shared.GetString("id", string.Empty));
             base.OnCreate(savedInstanceState);
-            zadaniaTask();
             SetContentView(Resource.Layout.glowna);
-            mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            saldo = (TextView)FindViewById(Resource.Id.saldo);
-            zablokowane = (TextView)FindViewById(Resource.Id.zablokowane);
-            dostepne = (TextView)FindViewById(Resource.Id.dostepne);
-            tranzakcje = (ListView)FindViewById(Resource.Id.listatranzakcji);
+            string[] dane = new string[3];
+            dane = danezbazy.odczytstanów(id);
+            saldo.Text = dane[0];
+            dostepne.Text = dane[1];
+            zablokowane.Text = dane[2];
+            przyciski();
+            zadaniaTask();
             var adapter = new OperacjaAdapter(this, listaoperacji);
             tranzakcje.Adapter = adapter;
             SetSupportActionBar(mToolbar);
             mDrawerLayout = (DrawerLayout)FindViewById(Resource.Id.toolbar_drawer);
             if (mDrawerLayout != null)
             {
-                var nav = FindViewById < NavigationView> (Resource.Id.navigation);
+                var nav = FindViewById<NavigationView>(Resource.Id.navigation);
                 nav.NavigationItemSelected += (sender, e) =>
                 {
                     menuBoczne(e.MenuItem);
@@ -61,6 +65,20 @@ namespace ApkikacjaBankowa
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(true);
             mtoggle.SyncState();
+        }
+
+        private void przyciski()
+        {
+            mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            saldo = (TextView)FindViewById(Resource.Id.saldo);
+            zablokowane = (TextView)FindViewById(Resource.Id.zablokowane);
+            dostepne = (TextView)FindViewById(Resource.Id.dostepne);
+            tranzakcje = (ListView)FindViewById(Resource.Id.listatranzakcji);
+        }
+           private async Task zadaniaTask()
+        {
+            SprawdźsaldaAsyncTask(id);
+            await piecoperacji(id);
         }
         public bool menuBoczne(IMenuItem item)
         {
@@ -87,11 +105,7 @@ namespace ApkikacjaBankowa
             //nothing
         }
 
-        private async Task zadaniaTask()
-        {
-            await SprawdźsaldaAsyncTask(id);
-            await piecoperacji(id);
-        }
+        
         private async Task SprawdźsaldaAsyncTask(int id)
         {
                 await Task.Run(() =>
@@ -108,8 +122,7 @@ namespace ApkikacjaBankowa
         {
             await Task.Run(() =>
                 {
-                    List<Operacja> oper = danezbazy.lista5operacji(id);
-
+                    listaoperacji = danezbazy.lista5operacji(id);
                 }
             );
         }

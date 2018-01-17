@@ -41,10 +41,8 @@ namespace ApkikacjaBankowa
                 id = outputppar.Value.ToString();
                 wartoscId = Convert.ToInt32(id);
                 con.Close();
-
             }
         }
-
         public string[] odczytstanów(int id)
         {
 
@@ -52,8 +50,7 @@ namespace ApkikacjaBankowa
             using (SqlConnection con = new SqlConnection(connectionstring))
             {
                 SqlCommand stany = new SqlCommand("stany", con);
-            
-            stany.Parameters.AddWithValue("@id", id);
+                stany.Parameters.AddWithValue("@id", id);
                 SqlParameter saldo = new SqlParameter();
                 saldo.ParameterName = "@saldo";
                 saldo.SqlDbType = System.Data.SqlDbType.Money;
@@ -70,14 +67,15 @@ namespace ApkikacjaBankowa
                 zablokowane.Direction = System.Data.ParameterDirection.Output;
                 stany.Parameters.Add(zablokowane);
                 stany.CommandType = System.Data.CommandType.StoredProcedure;
-            con.Open();
-            stany.ExecuteNonQuery();
+             con.Open();
+                stany.ExecuteReader();
                 dane[0] = saldo.Value.ToString();
                 dane[1] = dostepne.Value.ToString();
                 dane[2] = zablokowane.Value.ToString();
             con.Close();
-                return dane;
+                
             }
+            return dane;
     }
 
         public List<Operacja> lista5operacji(int id)
