@@ -42,12 +42,16 @@ namespace ApkikacjaBankowa
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.glowna);
             string[] dane = new string[3];
+            przyciski();
             dane = danezbazy.odczytstanów(id);
             saldo.Text = dane[0];
             dostepne.Text = dane[1];
             zablokowane.Text = dane[2];
-            przyciski();
-            zadaniaTask();
+            
+            listaoperacji = danezbazy.lista5operacji(id);
+            //zadaniaTask();
+            //SprawdźsaldaAsyncTask(id);
+            //piecoperacji(id);
             var adapter = new OperacjaAdapter(this, listaoperacji);
             tranzakcje.Adapter = adapter;
             SetSupportActionBar(mToolbar);

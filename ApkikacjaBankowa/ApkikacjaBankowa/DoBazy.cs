@@ -20,8 +20,7 @@ namespace ApkikacjaBankowa
         public string id;
         public int wartoscId;
 
-        string connectionstring =
-            " Data Source=abd.wwsi.edu.pl;Initial Catalog = jippZ507; User ID = jippakita; Password=qazwsx123456";
+        string connectionstring = " Data Source=abd.wwsi.edu.pl;Initial Catalog = jippZ507; User ID = jippakita; Password=qazwsx123456";
 
         public void logowanie(string login, string haslo)
         {
@@ -46,44 +45,40 @@ namespace ApkikacjaBankowa
         public string[] odczytstanów(int id)
         {
 
-        string[] dane= new string[3];
-            using (SqlConnection con = new SqlConnection(connectionstring))
+
+            var dane = new List<string>();
+            using (SqlConnection connection = new SqlConnection(connectionstring))
             {
-                SqlCommand stany = new SqlCommand("stany", con);
-                stany.Parameters.AddWithValue("@id", id);
-                SqlParameter saldo = new SqlParameter();
-                saldo.ParameterName = "@saldo";
-                saldo.SqlDbType = System.Data.SqlDbType.Money;
-                saldo.Direction = System.Data.ParameterDirection.Output;
-                stany.Parameters.Add(saldo);
-                SqlParameter dostepne = new SqlParameter();
-                dostepne.ParameterName = "@dostepne";
-                dostepne.SqlDbType = System.Data.SqlDbType.Money;
-                dostepne.Direction = System.Data.ParameterDirection.Output;
-                stany.Parameters.Add(dostepne);
-                SqlParameter zablokowane = new SqlParameter();
-                zablokowane.ParameterName = "@zablokowane";
-                zablokowane.SqlDbType = System.Data.SqlDbType.Money;
-                zablokowane.Direction = System.Data.ParameterDirection.Output;
-                stany.Parameters.Add(zablokowane);
-                stany.CommandType = System.Data.CommandType.StoredProcedure;
-             con.Open();
-                stany.ExecuteReader();
-                dane[0] = saldo.Value.ToString();
-                dane[1] = dostepne.Value.ToString();
-                dane[2] = zablokowane.Value.ToString();
-            con.Close();
-                
+                using (var cmd = new SqlCommand("stany", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dane.Add(reader["saldo"].ToString());
+                            dane.Add(reader["zablokowane"].ToString());
+                            dane.Add(reader["dostepne"].ToString());
+                        }
+                    }
+                    connection.Close();
+                }
             }
-            return dane;
-    }
+            return dane.ToArray();
+        }
 
         public List<Operacja> lista5operacji(int id)
         {
 
             List<Operacja> listaop =new List<Operacja>();
-            SqlCommand piecoperSqlCommand =new SqlCommand("Select * from [JiPPakita].[operacje]("+id+")");
+            using (SqlConnection connection=new SqlConnection(connectionstring))
+            {
+                SqlCommand piecoperSqlCommand =new SqlCommand("Select * from [JiPPakita].[operacje]("+id+")",connection);
             piecoperSqlCommand.CommandType = CommandType.Text;
+                connection.Open();
             SqlDataReader dane=piecoperSqlCommand.ExecuteReader();
             int i = 0;
             while (dane.Read())
@@ -93,6 +88,8 @@ namespace ApkikacjaBankowa
                 i++;
             }
             dane.Close();
+            }
+            
             return listaop;
             
         }
