@@ -23,7 +23,6 @@ namespace ApkikacjaBankowa
     [Activity(Label = "glowna", Theme = "@style/AppTheme")]
     public class glowna : AppCompatActivity
     {
-        
         public Toolbar mToolbar;
         public static TextView saldo, zablokowane, dostepne;
         public ListView tranzakcje;
@@ -32,9 +31,6 @@ namespace ApkikacjaBankowa
         private ActionBarDrawerToggle mtoggle;
         private int id;
         private DoBazy danezbazy=new DoBazy();
-
-       
-            
         protected override void OnCreate(Bundle savedInstanceState)
         {
             ISharedPreferences shared = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
@@ -47,7 +43,6 @@ namespace ApkikacjaBankowa
             saldo.Text = dane[0];
             dostepne.Text = dane[1];
             zablokowane.Text = dane[2];
-            
             listaoperacji = danezbazy.lista5operacji(id);
             //zadaniaTask();
             //SprawdźsaldaAsyncTask(id);
@@ -90,26 +85,23 @@ namespace ApkikacjaBankowa
             switch (id)
             {
                 case Resource.Id.karty:
-                    Intent klik = new Intent(this, typeof(Przelew));
-                    StartActivity(klik);
-                    return true;
-                case Resource.Id.przelew :
                     Intent klik2 = new Intent(this, typeof(KartyActivity));
                     StartActivity(klik2);
                     return true;
-                case Resource.Id.lokaty:
+                case Resource.Id.przelew :
+                    Intent klik = new Intent(this, typeof(Przelew));
+                    StartActivity(klik);
+                    return true;
+                    case Resource.Id.lokaty:
 
                     return true;
             }
             return true;
-            
         }
         public override void OnBackPressed()
         {
             //nothing
         }
-
-        
         private async Task SprawdźsaldaAsyncTask(int id)
         {
                 await Task.Run(() =>

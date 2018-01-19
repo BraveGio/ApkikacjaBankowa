@@ -72,7 +72,6 @@ namespace ApkikacjaBankowa
 
         public List<Operacja> lista5operacji(int id)
         {
-
             List<Operacja> listaop =new List<Operacja>();
             using (SqlConnection connection=new SqlConnection(connectionstring))
             {
@@ -89,16 +88,8 @@ namespace ApkikacjaBankowa
             }
             dane.Close();
             }
-            
             return listaop;
-            
         }
-
-}
-
-   
-
-        
-
+       }
     }
 
